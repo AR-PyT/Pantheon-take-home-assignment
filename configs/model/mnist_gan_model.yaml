@@ -10,6 +10,15 @@ img_size: 32
 
 # TODO: instantiate the generator and discriminator objects with Hydra
 #       https://hydra.cc/docs/advanced/instantiate_objects/overview/
-generator: null
+generator:
+  _target_: src.models.modules.generators.Generator
+  n_classes: 10
+  latent_dim: 100
+  channels: 1
+  img_size: 32
 
-discriminator: null
+discriminator:
+  _target_: src.models.modules.discriminators.Discriminator
+  n_classes: 10
+  channels: 1
+  img_size: 32
